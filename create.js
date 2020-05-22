@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import * as dynamoDbLib from './libs/dynamodb-lib';
 import { success, failure } from './libs/response-lib';
 
@@ -8,7 +8,7 @@ export async function main(event) {
     TableName: 'ext-product',
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      productId: uuid.v1(),
+      productId: uuidv4(),
       content: data.content,
       attachment: data.attachment,
       createdAt: Date.now()
