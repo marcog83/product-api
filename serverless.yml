@@ -24,7 +24,7 @@ provider:
     stage: ${self:custom.stage}
     resourcesStage: ${self:custom.resourcesStage}
 
-  iamRoleStatements:     
+  iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:DescribeTable
@@ -37,11 +37,11 @@ provider:
       # Restrict our IAM role permissions to
       # the specific table for the stage
       Resource:
-        - 'Fn::ImportValue': ${self:custom.resourcesStage}-ExtNotesTableArn
+        - 'Fn::ImportValue': ${self:custom.resourcesStage}-ExtProductTableArn
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
-  # - path: url path is /notes
+  # - path: url path is /product
   # - method: POST request
   # - cors: enabled CORS (Cross-Origin Resource Sharing) for browser cross
   #     domain api call
@@ -115,11 +115,11 @@ resources:
           Ref: ApiGatewayRestApi
         Export:
           Name: ${self:custom.stage}-ExtApiGatewayRestApiId
-    
+
       ApiGatewayRestApiRootResourceId:
         Value:
-           Fn::GetAtt:
+          Fn::GetAtt:
             - ApiGatewayRestApi
-            - RootResourceId 
+            - RootResourceId
         Export:
           Name: ${self:custom.stage}-ExtApiGatewayRestApiRootResourceId
