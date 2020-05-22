@@ -5,7 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "test": "serverless-bundle test",
-    "deploy": "sls deploy"
+    "deploy": "sls deploy",
+    "lint": "eslint --fix"
   },
   "author": "",
   "license": "MIT",
@@ -25,7 +26,7 @@
     "serverless": "^1.71.3"
   },
   "dependencies": {
-    "uuid":"^8.1.0",
+    "uuid": "^8.1.0",
     "aws-sdk": "^2.680.0"
   }
 }

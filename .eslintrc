@@ -1,0 +1,10 @@
+{
+  "extends": "defaults/configurations/eslint",
+  "parser": "babel-eslint",
+  "plugins": ["import"],
+  "env": {
+    "node": true,
+    "es6": true,
+    "worker": true
+  }
+}
