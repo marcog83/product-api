@@ -9,8 +9,8 @@ export async function main(event) {
     // - 'productId': path parameter
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      productId: event.pathParameters.id,
-    },
+      productId: event.pathParameters.id
+    }
   };
 
   try {
