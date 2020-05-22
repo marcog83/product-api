@@ -1,11 +1,12 @@
-import AWS from "aws-sdk";
+import AWS from "aws-sdk"; 
+import config from "./config";
 
-const client = new AWS.DynamoDB.DocumentClient();
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-export default {
-  get   : (params) => client.get(params).promise(),
-  put   : (params) => client.put(params).promise(),
-  query : (params) => client.query(params).promise(),
-  update: (params) => client.update(params).promise(),
-  delete: (params) => client.delete(params).promise(),
-};
+export function call(action, params) {
+  // Parameterize table names with stage name
+  return dynamoDb[action]({
+    ...params,
+    TableName: `${config.resourcesStage}-${params.TableName}`
+  }).promise();
+}
