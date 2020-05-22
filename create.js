@@ -18,7 +18,7 @@ export async function main(event) {
   try {
     await dynamoDbLib.call('put', params);
     return success(params.Item);
-  } catch (e) {
-    return failure({ status: false });
+  } catch (error) {
+    return failure({ status: false, error });
   }
 }
