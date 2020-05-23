@@ -6,10 +6,10 @@ export async function main(event) {
     TableName: 'ext-product',
     // 'Key' defines the partition key and sort key of the item to be removed
     // - 'userId': Identity Pool identity id of the authenticated user
-    // - 'noteId': path parameter
+    // - 'productId': path parameter
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      noteId: event.pathParameters.id
+      productId: event.pathParameters.id
     }
   };
 
