@@ -64,8 +64,7 @@ functions:
       - http:
           path: product/{id}
           method: get
-          cors: true
-          authorizer: aws_iam
+          cors: true 
 
   list:
     # Defines an HTTP API endpoint that calls the main function in list.js
@@ -76,8 +75,7 @@ functions:
       - http:
           path: products
           method: get
-          cors: true
-          authorizer: aws_iam
+          cors: true 
 
   update:
     # Defines an HTTP API endpoint that calls the main function in update.js
